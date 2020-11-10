@@ -1,5 +1,6 @@
 package com.company;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Main {
@@ -33,28 +34,33 @@ public class Main {
         while (true) {
             System.out.println(spacer + "\nYou can add up to 10 tasks!\n" + "You have " + currentTasks + "/10!\n" + spacer + "\n1) Manage tasks \n" + "2) View tasks\n" + "3) Exit");
             while (true) {
-                int menuInput = sc.nextInt(); //User input in the main menu
-
-                if (menuInput == 1) { //1 - Manage tasks
+                try {
+                    int menuInput = sc.nextInt(); //User input in the main menu
+                    if (menuInput == 1) { //1 - Manage tasks
+                        System.out.println(spacer + "\nTasks management\n" + spacer + "\n1) Create a new task\n2) Update a task\n3) Destroy a task\n4) Back to main menu");
+                        break; // Breaks the while loop and goes to the other while loop.
+                    } else if (menuInput == 2) { //2 - View tasks
+                        System.out.println(spacer);
+                        System.out.println("#0 - " + stringTaskArray[0]);
+                        System.out.println("#1 - " + stringTaskArray[1]);
+                        System.out.println("#2 - " + stringTaskArray[2]);
+                        System.out.println("#3 - " + stringTaskArray[3]);
+                        System.out.println("#4 - " + stringTaskArray[4]);
+                        System.out.println("#5 - " + stringTaskArray[5]);
+                        System.out.println("#6 - " + stringTaskArray[6]);
+                        System.out.println("#7 - " + stringTaskArray[7]);
+                        System.out.println("#8 - " + stringTaskArray[8]);
+                        System.out.println("#9 - " + stringTaskArray[9]);
+                        System.out.println(spacer + "\nYou can add up to 10 tasks!\n" + "You have " + currentTasks + "/10!\n" + spacer + "\n1) Manage tasks \n" + "2) View tasks\n" + "3) Exit");
+                    } else if (menuInput == 3) { //3 - Exit
+                        System.exit(0); //Exits the program.
+                    } else {
+                        System.out.println("Incorrect input"); //If there is a number like 4 or 5, it will say Incorrect input.
+                    }
+                } catch (InputMismatchException e) {
+                    System.out.println("Incorrect input"); //If the user puts in a word/letter it will say incorrect input and move onto Tasks Management.
                     System.out.println(spacer + "\nTasks management\n" + spacer + "\n1) Create a new task\n2) Update a task\n3) Destroy a task\n4) Back to main menu");
-                    break; // Breaks the while loop and goes to the other while loop.
-                } else if (menuInput == 2) { //2 - View tasks
-                    System.out.println(spacer);
-                    System.out.println("#0 - " + stringTaskArray[0]);
-                    System.out.println("#1 - " + stringTaskArray[1]);
-                    System.out.println("#2 - " + stringTaskArray[2]);
-                    System.out.println("#3 - " + stringTaskArray[3]);
-                    System.out.println("#4 - " + stringTaskArray[4]);
-                    System.out.println("#5 - " + stringTaskArray[5]);
-                    System.out.println("#6 - " + stringTaskArray[6]);
-                    System.out.println("#7 - " + stringTaskArray[7]);
-                    System.out.println("#8 - " + stringTaskArray[8]);
-                    System.out.println("#9 - " + stringTaskArray[9]);
-                    System.out.println(spacer + "\nYou can add up to 10 tasks!\n" + "You have " + currentTasks + "/10!\n" + spacer + "\n1) Manage tasks \n" + "2) View tasks\n" + "3) Exit");
-                } else if (menuInput == 3) { //3 - Exit
-                    System.exit(0); //Exits the program.
-                } else {
-                    System.out.println("Incorrect input"); //If there is a number like 4 or 5, it will say Incorrect input, but will crash if a word/letter is put in.
+                    break;
                 }
             }
 
