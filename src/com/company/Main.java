@@ -37,13 +37,13 @@ public class Main {
                 int secondMenuInput = sc.nextInt();
                 if (secondMenuInput == 1) {
                     System.out.println("Enter name of the new task:");
-                    stringTaskArray[1+currentTasks]= sc.next();
+                    stringTaskArray[1+currentTasks]= sc.nextLine();
                     currentTasks++;
                 } else if (secondMenuInput == 2) {
                     System.out.println("What task do you want to change:");
                     int inputTaskChange = sc.nextInt();
                     System.out.println("Enter name of the new task:");
-                    stringTaskArray[inputTaskChange] = sc.next();
+                    stringTaskArray[inputTaskChange] = sc.nextLine();
                 } else if (secondMenuInput == 3) {
                     System.out.println("What task do you want to destroy:");
                     int inputTaskDestroy = sc.nextInt();
